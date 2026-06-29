@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    margin: 0;
+}
+
+.contenedor {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+.tarjeta {
+    background: white;
+    padding: 18px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+input, button {
+    padding: 10px;
+    margin: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
+pre {
+    background: #111827;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    overflow-x: auto;
+}

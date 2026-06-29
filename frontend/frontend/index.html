@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Cochera</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="contenedor">
+        <h1>Sistema de Gestión de Cochera</h1>
+        <p>Control de vehículos, entradas, salidas y promociones.</p>
+
+        <section class="tarjeta">
+            <h2>Registrar vehículo</h2>
+            <input id="placa" placeholder="Placa">
+            <input id="propietario" placeholder="Propietario">
+            <input id="tipo" placeholder="Tipo de vehículo">
+            <button onclick="crearVehiculo()">Guardar vehículo</button>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Control de cochera</h2>
+            <input id="placaControl" placeholder="Placa">
+            <button onclick="registrarEntrada()">Registrar entrada</button>
+            <button onclick="registrarSalida()">Registrar salida</button>
+            <button onclick="consultarPromocion()">Ver promoción</button>
+        </section>
+
+        <section class="tarjeta">
+            <h2>Vehículos registrados</h2>
+            <button onclick="listarVehiculos()">Actualizar lista</button>
+            <ul id="listaVehiculos"></ul>
+        </section>
+
+        <pre id="resultado"></pre>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
