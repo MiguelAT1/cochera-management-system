@@ -1,0 +1,62 @@
+name: CI Cochera Management System
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  backend:
+    name: Compilar y probar backend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Compilar y ejecutar pruebas
+        working-directory: backend
+        run: mvn clean test
+
+  frontend:
+    name: Validar archivos del frontend
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar estructura del frontend
+        run: |
+          test -f frontend/frontend/index.html
+          test -f frontend/frontend/app.js
+          test -f frontend/frontend/styles.css
+          echo "Los archivos principales del frontend existen correctamente"
+
+      - name: Verificar que index.html no esté vacío
+        run: |
+          test -s frontend/frontend/index.html
+          echo "El archivo index.html contiene información"
+
+      - name: Verificar que app.js no esté vacío
+        run: |
+          test -s frontend/frontend/app.js
+          echo "El archivo app.js contiene información"
+
+      - name: Verificar que styles.css no esté vacío
+        run: |
+          test -s frontend/frontend/styles.css
+          echo "El archivo styles.css contiene información"
