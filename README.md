@@ -1,6 +1,6 @@
 # Sistema de Gestión de Cochera
 
-Proyecto académico para el curso Herramientas de Desarrollo.
+Proyecto académico desarrollado para el curso Herramientas de Desarrollo Profesional. El sistema permite administrar el ingreso y salida de vehículos, el registro de usuarios y la gestión de promociones de una cochera, aplicando buenas prácticas de control de versiones, integración continua y contenerización.
 
 ## Tecnologías
 
@@ -9,9 +9,11 @@ Proyecto académico para el curso Herramientas de Desarrollo.
 - Spring Data JPA
 - H2 Database
 - HTML, CSS y JavaScript
-- Jenkins
 - Git y GitFlow
-- Slack
+- GitHub Actions
+- Docker
+- Docker Compose
+- Jenkins
 
 ## Funcionalidades
 
@@ -24,63 +26,61 @@ Proyecto académico para el curso Herramientas de Desarrollo.
   - 20 visitas: 50% de descuento
   - 40 visitas: estacionamiento gratis
 - Pruebas automatizadas
+- Integración continua con GitHub Actions
+- Contenerización con Docker
+- Orquestación de servicios mediante Docker Compose
 - Pipeline de Jenkins
 
-## Ejecutar backend
+## Ejecución con Docker
+
+Construir las imágenes:
 
 ```bash
-cd backend
-mvn spring-boot:run
+docker compose build
 ```
 
-El backend estará disponible en:
+Levantar los contenedores:
+
+```bash
+docker compose up
+```
+
+Detener los contenedores:
+
+```bash
+docker compose down
+```
+
+## Acceso a la aplicación
+
+Frontend:
 
 ```text
-http://localhost:8080
+http://localhost:8087
 ```
 
-## Abrir frontend
-
-Abrir el archivo:
+Backend:
 
 ```text
-frontend/index.html
+http://localhost:8086
 ```
 
-## Endpoints principales
 
-### Vehículos
 
-```http
-GET /api/vehiculos
-POST /api/vehiculos
-PUT /api/vehiculos/{id}
-DELETE /api/vehiculos/{id}
-```
+## Integración Continua
 
-### Usuarios
+El proyecto utiliza GitHub Actions para:
 
-```http
-GET /api/usuarios
-POST /api/usuarios
-PUT /api/usuarios/{id}
-DELETE /api/usuarios/{id}
-```
-
-### Cochera
-
-```http
-POST /api/cochera/entrada
-POST /api/cochera/salida
-GET /api/cochera/registros
-GET /api/cochera/promocion/{placa}
-```
+- Compilar automáticamente el backend.
+- Ejecutar las pruebas automatizadas.
+- Validar la estructura del frontend.
+- Verificar los cambios en cada Push y Pull Request.
 
 ## Jenkins
 
-El archivo `Jenkinsfile` contiene las etapas:
+El archivo `Jenkinsfile` contiene las siguientes etapas:
 
-1. Clonar repositorio
-2. Compilar backend
-3. Ejecutar pruebas
-4. Empaquetar proyecto
+1. Clonar el repositorio.
+2. Compilar el backend.
+3. Ejecutar las pruebas.
+4. Empaquetar el proyecto.
