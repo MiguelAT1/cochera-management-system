@@ -41,22 +41,22 @@ jobs:
 
       - name: Verificar estructura del frontend
         run: |
-          test -f frontend/index.html
-          test -f frontend/app.js
-          test -f frontend/styles.css
+          test -f frontend/frontend/index.html
+          test -f frontend/frontend/app.js
+          test -f frontend/frontend/styles.css
           echo "Los archivos principales del frontend existen correctamente"
 
       - name: Verificar que index.html no esté vacío
         run: |
-          test -s frontend/index.html
+          test -s frontend/frontend/index.html
           echo "El archivo index.html contiene información"
 
       - name: Verificar que app.js no esté vacío
         run: |
-          test -s frontend/app.js
+          test -s frontend/frontend/app.js
           echo "El archivo app.js contiene información"
 
       - name: Verificar que styles.css no esté vacío
         run: |
-          test -s frontend/styles.css
+          test -s frontend/frontend/styles.css
           echo "El archivo styles.css contiene información"
