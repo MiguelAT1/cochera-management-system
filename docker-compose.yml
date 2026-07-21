@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  backend:
+    build:
+      context: ./backend
+    container_name: cochera-backend
+    ports:
+      - "8086:8080"
+
+  frontend:
+    build:
+      context: ./frontend/frontend
+    container_name: cochera-frontend
+    ports:
+      - "8087:80"
+    depends_on:
+      - backend
